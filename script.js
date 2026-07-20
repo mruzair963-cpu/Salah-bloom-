@@ -64,8 +64,7 @@ resetButton.addEventListener("click", function () {
   localStorage.setItem("streak", 0);
   streak.innerHTML = "🔥 Streak: 0 Days";
 });
-duaBox.innerHTML = duas[Math.floor(Math.random() * duas.length)];
-hadithBox.innerHTML = hadiths[Math.floor(Math.random() * hadiths.length)];
+loadDailyDhikr();
 
   updateProgress();
 });
