@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const checkboxes = document.querySelectorAll("input[type='checkbox']");
   const progress = document.querySelector("h3");
   const streak = document.querySelectorAll("h3")[1];
+  const achievement = document.getElementById("achievement");
 
   function updateProgress() {
     let checked = 0;
@@ -17,10 +18,16 @@ document.addEventListener("DOMContentLoaded", function () {
       let days = Number(localStorage.getItem("streak")) || 0;
       days++;
       localStorage.setItem("streak", days);
+
+      achievement.innerHTML =
+        "🏆 Achievement: Amazing! All Salah completed today!";
+    } else {
+      achievement.innerHTML =
+        "🌱 Achievement: Keep growing your Salah habit!";
     }
 
     streak.innerHTML =
-      "🔥 Streak: " + (localStorage.getItem("streak") || 0);
+      "🔥 Streak: " + (localStorage.getItem("streak") || 0) + " Days";
   }
 
   checkboxes.forEach((box, index) => {
