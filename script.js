@@ -12,6 +12,7 @@ const hadithBox = document.getElementById("hadith");
   try {
     const response = await fetch("https://api.islamic.app/v1/dhikr/morning");
     const result = await response.json();
+    console.log(result);
 
     if (result.data && result.data.length > 0) {
       const random =
