@@ -20,4 +20,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     streak.innerHTML =
-      "🔥 Streak: " + (
+      "🔥 Streak: " + (localStorage.getItem("streak") || 0);
+  }
+
+  checkboxes.forEach((box, index) => {
+    box.checked = localStorage.getItem("salah" + index) === "true";
+    box.addEventListener("change", updateProgress);
+  });
+
+  updateProgress();
+});
