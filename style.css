@@ -76,3 +76,19 @@ h3 {
     font-size: 16px;
   }
 }
+#achievement {
+  background: white;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 16px;
+  text-align: center;
+  font-size: 18px;
+  color: #2e7d32;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-left: 5px solid #d81b60;
+  transition: 0.3s;
+}
+
+#achievement:hover {
+  transform: translateY(-3px);
+}
