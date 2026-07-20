@@ -32,9 +32,15 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   checkboxes.forEach((box, index) => {
-    box.checked = localStorage.getItem("salah" + index) === "true";
-    box.addEventListener("change", updateProgress);
-  });
+  box.checked = localStorage.getItem("salah" + index) === "true";
+  box.addEventListener("change", updateProgress);
+});
+
+resetButton.addEventListener("click", function () {
+  localStorage.setItem("streak", 0);
+  streak.innerHTML = "🔥 Streak: 0 Days";
+});
+
 
   updateProgress();
 });
