@@ -4,20 +4,30 @@ document.addEventListener("DOMContentLoaded", function () {
   const streak = document.querySelectorAll("h3")[1];
   const achievement = document.getElementById("achievement");
   const resetButton = document.getElementById("resetStreak");
-  const duas = [
-  "Allahumma a'inni ala dhikrika wa shukrika wa husni ibadatik.",
-  "Rabbighfir li warhamni wa anta khairur rahimeen.",
-  "Allahumma inni as'alukal jannah wa a'udhu bika minan naar."
-];
-
-const hadiths = [
-  "The most beloved deeds to Allah are those done regularly, even if they are few.",
-  "Cleanliness is half of faith.",
-  "Allah does not look at your appearance, but at your hearts and deeds."
-];
+  
 
 const duaBox = document.getElementById("dua");
 const hadithBox = document.getElementById("hadith");
+  async function loadDailyDhikr() {
+  try {
+    const response = await fetch("https://api.islamic.app/v1/dhikr/morning");
+    const result = await response.json();
+
+    if (result.data && result.data.length > 0) {
+      const random =
+        result.data[Math.floor(Math.random() * result.data.length)];
+
+      duaBox.innerHTML =
+        "<strong>Arabic:</strong><br>" +
+        random.arabic +
+        "<br><br><strong>English:</strong><br>" +
+        random.translation;
+    }
+  } catch (error) {
+    duaBox.innerHTML =
+      "Unable to load today's dua. Please check your internet connection.";
+  }
+  }
 
   function updateProgress() {
     let checked = 0;
