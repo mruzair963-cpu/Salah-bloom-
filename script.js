@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const progress = document.querySelector("h3");
   const streak = document.querySelectorAll("h3")[1];
   const achievement = document.getElementById("achievement");
+  const resetButton = document.getElementById("resetStreak");
 
   function updateProgress() {
     let checked = 0;
