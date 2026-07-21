@@ -42,9 +42,10 @@ fetch(`https://api.aladhan.com/v1/gToH/${day}-${month}-${year}`)
   .then(data => {
     const hijri = data.data.hijri;
 
-    hijriDate.textContent =
-      `🌙 ${hijri.day} ${hijri.month.en} ${hijri.year} AH`;
-  })
+    if(hijriDate){
+  hijriDate.textContent =
+    `🌙 ${hijri.day} ${hijri.month.en} ${hijri.year} AH`;
+    })
   .catch(() => {
     hijriDate.textContent = "🌙 Hijri date unavailable";
   });
@@ -217,9 +218,13 @@ checkboxes.forEach((box, index) => {
   }
 
 
+  if(currentPrayer){
   currentPrayer.textContent = current;
+}
 
+if(nextPrayer){
   nextPrayer.textContent = next;
+}
 
   }
 
