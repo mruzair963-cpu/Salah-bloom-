@@ -16,6 +16,7 @@ const dhuhr = document.getElementById("dhuhr");
 const asr = document.getElementById("asr");
 const maghrib = document.getElementById("maghrib");
 const isha = document.getElementById("isha");
+  let prayerTimings = {};
   const sunrise = document.getElementById("sunrise");
 const currentPrayer = document.getElementById("currentPrayer");
 const nextPrayer = document.getElementById("nextPrayer");
@@ -54,7 +55,16 @@ fetch(`https://api.aladhan.com/v1/timings?latitude=${latitude}&longitude=${longi
 .then(data=>{
 
 const timings = data.data.timings;
-  sunrise.textContent = timings.Sunrise;
+
+prayerTimings = {
+  Fajr: timings.Fajr,
+  Dhuhr: timings.Dhuhr,
+  Asr: timings.Asr,
+  Maghrib: timings.Maghrib,
+  Isha: timings.Isha
+};
+
+sunrise.textContent = timings.Sunrise;
 
 fajr.textContent = timings.Fajr;
 dhuhr.textContent = timings.Dhuhr;
@@ -176,3 +186,46 @@ function showScreen(screenId) {
   document.getElementById(screenId).classList.add("active");
 
 }
+  function updatePrayerStatus(){
+
+  if(Object.keys(prayerTimings).length === 0){
+    return;
+  }
+
+
+  const now = new Date();
+
+  let current = "Before Fajr";
+  let next = "Fajr";
+
+
+  for(let prayer in prayerTimings){
+
+    let [hour, minute] = prayerTimings[prayer].split(":");
+
+    let prayerTime = new Date();
+
+    prayerTime.setHours(hour);
+    prayerTime.setMinutes(minute);
+    prayerTime.setSeconds(0);
+
+
+    if(now >= prayerTime){
+      current = prayer;
+    }
+    else{
+      next = prayer;
+      break;
+    }
+
+  }
+
+
+  currentPrayer.textContent = current;
+
+  nextPrayer.textContent = next;
+
+}
+
+
+setInterval(updatePrayerStatus,1000);
