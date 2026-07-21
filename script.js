@@ -10,6 +10,7 @@ const streak = document.getElementById("streakText");
 // Today's Date
 
 const todayDate = document.getElementById("todayDate");
+  const hijriDate = document.getElementById("hijriDate");
 
 const today = new Date();
 
@@ -19,13 +20,24 @@ todayDate.textContent = today.toLocaleDateString("en-US", {
   month: "long",
   year: "numeric"
 });
+  fetch("https://api.aladhan.com/v1/gToH")
+  .then(response => response.json())
+  .then(data => {
+    const hijri = data.data.hijri;
+
+    hijriDate.textContent =
+      `🌙 ${hijri.day} ${hijri.month.en} ${hijri.year} AH`;
+  })
+  .catch(() => {
+    hijriDate.textContent = "🌙 Hijri date unavailable";
+  });
   
   // Update Progress & Streak
   function updateProgress() {
     let checked = 0;
 
     checkboxes.forEach((box, index) => {
-      localStorage.setItem(`salah${index}`, box.checked);
+      localStorage.setItem(`salah${index}`, box.checked.toString());
 
       if (box.checked) {
         checked++;
