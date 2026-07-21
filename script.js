@@ -165,6 +165,7 @@ if (dhuhr) dhuhr.textContent = timings.Dhuhr;
 if (asr) asr.textContent = timings.Asr;
 if (maghrib) maghrib.textContent = timings.Maghrib;
 if (isha) isha.textContent = timings.Isha;
+  updatePrayerStatus();
 
 });
 
