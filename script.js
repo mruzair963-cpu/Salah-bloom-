@@ -20,7 +20,12 @@ todayDate.textContent = today.toLocaleDateString("en-US", {
   month: "long",
   year: "numeric"
 });
-  fetch("https://api.aladhan.com/v1/gToH")
+  const today = new Date();
+const day = today.getDate();
+const month = today.getMonth() + 1;
+const year = today.getFullYear();
+
+fetch(`https://api.aladhan.com/v1/gToH/${day}-${month}-${year}`)
   .then(response => response.json())
   .then(data => {
     const hijri = data.data.hijri;
