@@ -231,3 +231,207 @@ footer{
     font-size:15px;
     padding:25px;
    }
+/* =========================
+   Salah Bloom v2.0
+   Part 3
+========================= */
+
+/* Smooth Scroll */
+
+html{
+    scroll-behavior:smooth;
+}
+
+/* Fade Animation */
+
+.hero,
+.date-card,
+.prayer-card,
+.tracker label,
+.card,
+#achievement,
+#dua,
+#hadith{
+    animation:fadeUp .8s ease;
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* Floating Background Flowers */
+
+body::before,
+body::after{
+
+    content:"🌸";
+    position:fixed;
+    font-size:70px;
+    opacity:.08;
+    z-index:-1;
+    animation:floatFlower 12s ease-in-out infinite;
+
+}
+
+body::before{
+
+    top:12%;
+    left:5%;
+
+}
+
+body::after{
+
+    bottom:10%;
+    right:6%;
+    animation-delay:6s;
+
+}
+
+@keyframes floatFlower{
+
+    0%{
+        transform:translateY(0px) rotate(0deg);
+    }
+
+    50%{
+        transform:translateY(-30px) rotate(15deg);
+    }
+
+    100%{
+        transform:translateY(0px) rotate(0deg);
+    }
+
+}
+
+/* Prayer Card Glow */
+
+.prayer-card:hover{
+
+    box-shadow:
+    0 15px 35px rgba(216,27,96,.18);
+
+}
+
+/* Tracker Glow */
+
+.tracker label:hover{
+
+    border-left:6px solid #d81b60;
+
+}
+
+/* Achievement */
+
+#achievement{
+
+    transition:.4s;
+
+}
+
+#achievement:hover{
+
+    transform:scale(1.02);
+
+}
+
+/* Dua & Hadith */
+
+#dua:hover,
+#hadith:hover{
+
+    transform:translateY(-3px);
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.hero{
+
+padding:35px 20px;
+
+}
+
+.hero h1{
+
+font-size:34px;
+
+}
+
+.tagline{
+
+font-size:18px;
+
+}
+
+.subtitle{
+
+font-size:15px;
+
+}
+
+h2{
+
+font-size:24px;
+
+}
+
+.prayer-card{
+
+font-size:16px;
+
+}
+
+.tracker label{
+
+font-size:16px;
+
+}
+
+.card p{
+
+font-size:18px;
+
+}
+
+#resetStreak{
+
+width:100%;
+
+}
+
+}
+
+/* Desktop */
+
+@media(min-width:900px){
+
+body{
+
+max-width:900px;
+margin:auto;
+
+}
+
+}
+
+/* Selection Color */
+
+::selection{
+
+background:#f8bbd0;
+color:#222;
+
+   }
