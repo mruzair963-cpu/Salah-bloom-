@@ -60,9 +60,8 @@ if (checked === 5) {
     "🌱 Keep growing your Salah habit!";
 }
 
-streak.textContent =
-  streak.textContent =
-(localStorage.getItem("streak") || 0) + " Days";
+    streak.textContent =
+  (localStorage.getItem("streak") || 0) + " Days";
   }
 
   // Restore saved checkboxes
@@ -96,7 +95,7 @@ checkboxes.forEach((box, index) => {
     localStorage.setItem("streak", 0);
     localStorage.removeItem("lastCompleted");
 
-    streak.textContent = "🔥 Streak: 0 Days";
+    streak.textContent = "0 Days";
 
   }
 
