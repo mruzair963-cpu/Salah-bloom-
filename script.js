@@ -180,8 +180,18 @@ ${randomHadith.urdu}
         title: "Daily Hadith",
         text: text
       });
+
+    } else {
+
+      alert("Sharing is not supported on this device.");
+
     }
-    if (favoriteHadith) {
+
+  });
+
+}
+
+if (favoriteHadith) {
 
   favoriteHadith.addEventListener("click", function () {
 
@@ -191,7 +201,7 @@ ${randomHadith.urdu}
 
   });
 
-    }
+}
 
     } else {
 
