@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Elements
   const checkboxes = document.querySelectorAll("input[type='checkbox']");
-  const progress = document.querySelector(".card:nth-child(1) h3");
-  const streak = document.querySelector(".card:nth-child(2) h3");
+  const progress = document.getElementById("progressText");
+const streak = document.getElementById("streakText");
   const achievement = document.getElementById("achievement");
   const resetButton = document.getElementById("resetStreak");
   
@@ -32,10 +32,10 @@ todayDate.textContent = today.toLocaleDateString("en-US", {
       }
     });
 
-    progress.textContent = "📊 Progress: " + checked + "/5";
+    progress.textContent = checked + " / 5";
 
     let days = Number(localStorage.getItem("streak")) || 0;
-const today = new Date().toDateString();
+const currentDay = new Date().toDateString();
 const lastCompleted = localStorage.getItem("lastCompleted");
 
 if (checked === 5) {
@@ -61,7 +61,8 @@ if (checked === 5) {
 }
 
 streak.textContent =
-  "🔥 Streak: " + (localStorage.getItem("streak") || 0) + " Days";
+  streak.textContent =
+(localStorage.getItem("streak") || 0) + " Days";
   }
 
   // Restore saved checkboxes
@@ -69,13 +70,13 @@ streak.textContent =
 const currentDay = new Date().toDateString();
 const savedDate = localStorage.getItem("savedDate");
 
-if (savedDate !== today) {
+  if (savedDate !== currentDay) {
 
   checkboxes.forEach((box, index) => {
     localStorage.setItem("salah" + index, false);
   });
 
-  localStorage.setItem("savedDate", today);
+  localStorage.setItem("savedDate", currentDay);
 }
 
 // Restore saved checkboxes
