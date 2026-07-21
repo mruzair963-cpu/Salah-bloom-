@@ -203,15 +203,6 @@ if (favoriteHadith) {
 
 }
 
-    } else {
-
-      alert("Sharing is not supported on this device.");
-
-    }
-
-  });
-
-  }
 
 if(todayDate){
 
