@@ -436,3 +436,33 @@ background:#f8bbd0;
 color:#222;
 
    }
+/* V3 App Screens */
+
+.screen {
+  display: none;
+}
+
+.screen.active {
+  display: block;
+}
+
+
+/* Bottom Navigation */
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background: white;
+}
+
+
+.bottom-nav button {
+  border: none;
+  background: transparent;
+  font-size: 14px;
+}
