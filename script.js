@@ -73,10 +73,11 @@ const savedDate = localStorage.getItem("savedDate");
 
   checkboxes.forEach((box, index) => {
     localStorage.setItem("salah" + index, false);
+    box.checked = false;
   });
 
   localStorage.setItem("savedDate", currentDay);
-}
+  }
 
 // Restore saved checkboxes
 checkboxes.forEach((box, index) => {
