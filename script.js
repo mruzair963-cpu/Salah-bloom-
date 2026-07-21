@@ -77,6 +77,7 @@ const savedDate = localStorage.getItem("savedDate");
   });
 
   localStorage.setItem("savedDate", currentDay);
+    achievement.textContent = "🌱 Keep growing your Salah habit!";
   }
 
 // Restore saved checkboxes
