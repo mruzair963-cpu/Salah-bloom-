@@ -60,11 +60,17 @@ streak.textContent =
 
   // Reset streak
   resetButton.addEventListener("click", function () {
-    if (confirm("Reset your streak?")) {
-      localStorage.setItem("streak", 0);
-      streak.textContent = "🔥 Streak: 0 Days";
-    }
-  });
+
+  if (confirm("Reset your streak?")) {
+
+    localStorage.setItem("streak", 0);
+    localStorage.removeItem("lastCompleted");
+
+    streak.textContent = "🔥 Streak: 0 Days";
+
+  }
+
+});
 
   updateProgress();
 
