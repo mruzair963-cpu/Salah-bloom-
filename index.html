@@ -1,71 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Salah Bloom</title>
-
-<link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salah Bloom 🌸</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="hero">
-  <h1>🌸 Salah Bloom 🌸</h1>
-  <p class="tagline">
-    Bloom one prayer at a time.
-  </p>
+  <!-- Hero Section -->
+  <header class="hero">
+    <h1>🌸 Salah Bloom 🌸</h1>
 
-  <p class="subtitle">
-    🤍 Build consistency • 🌿 Strengthen your faith • ✨ Grow closer to Allah
-  </p>
-</div>
+    <p class="tagline">
+      Bloom one prayer at a time.
+    </p>
 
-<h2>Today's Salah</h2>
+    <p class="subtitle">
+      🤍 Build consistency • 🌿 Strengthen your faith • ✨ Grow closer to Allah
+    </p>
+  </header>
 
-<label><input type="checkbox"> 🌅 Fajr</label>
+  <!-- Today's Date -->
+  <section class="date-section">
+    <div class="date-card">
+      <h3>📅 Today</h3>
+      <p id="todayDate">Loading...</p>
+      <p id="hijriDate">🌙 Loading Hijri Date...</p>
+    </div>
+  </section>
 
-<label><input type="checkbox"> ☀️ Dhuhr</label>
+  <!-- Prayer Times -->
+  <section class="prayer-times">
 
-<label><input type="checkbox"> 🌤️ Asr</label>
+    <h2>🕌 Prayer Times</h2>
 
-<label><input type="checkbox"> 🌇 Maghrib</label>
+    <div id="prayerCards">
 
-<label><input type="checkbox"> 🌙 Isha</label>
+      <div class="prayer-card">
+        🌅 Fajr
+        <span id="fajr">--:--</span>
+      </div>
 
-<div class="stats">
+      <div class="prayer-card">
+        ☀️ Dhuhr
+        <span id="dhuhr">--:--</span>
+      </div>
 
-  <div class="card">
-    <h3>📊 Progress: 0/5</h3>
-  </div>
+      <div class="prayer-card">
+        🌤️ Asr
+        <span id="asr">--:--</span>
+      </div>
 
-  <div class="card">
-    <h3>🔥 Streak: 0 Days</h3>
-  </div>
+      <div class="prayer-card">
+        🌇 Maghrib
+        <span id="maghrib">--:--</span>
+      </div>
 
-</div>
+      <div class="prayer-card">
+        🌙 Isha
+        <span id="isha">--:--</span>
+      </div>
 
-<button id="resetStreak">Reset Streak</button>
+    </div>
 
-<div id="achievement">
-🏆 Achievement: Keep growing your Salah habit!
-</div>
+  </section>
 
-<h2>🤲 Daily Dua</h2>
+  <!-- Salah Tracker -->
+  <section class="tracker">
 
-<p id="dua">
-Allahumma a'inni ala dhikrika wa shukrika wa husni ibadatik.
-</p>
+    <h2>☑️ Today's Salah</h2>
 
-<h2>📖 Daily Hadith</h2>
+    <label><input type="checkbox"> 🌅 Fajr</label>
 
-<p id="hadith">
-"The most beloved deeds to Allah are those done regularly, even if they are few."
-(Sahih al-Bukhari & Sahih Muslim)
-</p>
+    <label><input type="checkbox"> ☀️ Dhuhr</label>
 
-<script src="script.js"></script>
+    <label><input type="checkbox"> 🌤️ Asr</label>
+
+    <label><input type="checkbox"> 🌇 Maghrib</label>
+
+    <label><input type="checkbox"> 🌙 Isha</label>
+
+  </section>
+
+  <!-- Statistics -->
+  <section class="stats">
+
+    <div class="card">
+      <h3>📊 Progress</h3>
+      <p id="progressText">0 / 5</p>
+    </div>
+
+    <div class="card">
+      <h3>🔥 Streak</h3>
+      <p id="streakText">0 Days</p>
+    </div>
+
+  </section>
+
+  <!-- Achievement -->
+  <section>
+
+    <div id="achievement">
+      🌱 Keep growing your Salah habit!
+    </div>
+
+  </section>
+
+  <!-- Daily Dua -->
+  <section>
+
+    <h2>🤲 Daily Dua</h2>
+
+    <div id="dua">
+      Loading today's dua...
+    </div>
+
+  </section>
+
+  <!-- Daily Hadith -->
+  <section>
+
+    <h2>📖 Daily Hadith</h2>
+
+    <div id="hadith">
+      Loading today's hadith...
+    </div>
+
+  </section>
+
+  <!-- Buttons -->
+  <section class="buttons">
+
+    <button id="resetStreak">
+      🔄 Reset Streak
+    </button>
+
+  </section>
+
+  <script src="script.js"></script>
 
 </body>
+
 </html>
