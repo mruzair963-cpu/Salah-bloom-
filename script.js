@@ -78,6 +78,7 @@ async function loadDailyDhikr() {
     duaBox.innerHTML = "Error: " + error.message;
   }
 }
+loadDailyDhikr();
 
   updateProgress();
 });
