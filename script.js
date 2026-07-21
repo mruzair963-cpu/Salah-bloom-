@@ -68,6 +68,27 @@ source: "Surah Taha 20:114"
 }
 
 ];
+  const randomDua = duas[Math.floor(Math.random() * duas.length)];
+
+if (duaTitle) {
+  duaTitle.textContent = "🤲 " + randomDua.title;
+}
+
+if (duaArabic) {
+  duaArabic.textContent = randomDua.arabic;
+}
+
+if (duaEnglish) {
+  duaEnglish.textContent = randomDua.english;
+}
+
+if (duaUrdu) {
+  duaUrdu.textContent = randomDua.urdu;
+}
+
+if (duaSource) {
+  duaSource.textContent = "📚 " + randomDua.source;
+}
 
 if(todayDate){
 
