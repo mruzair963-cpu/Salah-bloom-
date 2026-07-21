@@ -223,6 +223,7 @@ if (checked === 5) {
   achievement.textContent =
     "🌱 Keep growing your Salah habit!";
   }
+}
 
     if (streak) {
   streak.textContent =
