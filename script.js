@@ -28,6 +28,10 @@ const duaSource = document.getElementById("duaSource");
 const shareDua = document.getElementById("shareDua");
 const favoriteDua = document.getElementById("favoriteDua");
   const refreshDua = document.getElementById("refreshDua");
+  const hadith = document.getElementById("hadith");
+const shareHadith = document.getElementById("shareHadith");
+const favoriteHadith = document.getElementById("favoriteHadith");
+const refreshHadith = document.getElementById("refreshHadith");
 
 const today = new Date();
   console.log(duas);
