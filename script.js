@@ -27,6 +27,7 @@ const duaUrdu = document.getElementById("duaUrdu");
 const duaSource = document.getElementById("duaSource");
 const shareDua = document.getElementById("shareDua");
 const favoriteDua = document.getElementById("favoriteDua");
+  const refreshDua = document.getElementById("refreshDua");
 
 const today = new Date();
   console.log(duas);
@@ -104,6 +105,17 @@ ${randomDua.urdu}
     localStorage.setItem("favoriteDua", JSON.stringify(randomDua));
 
     alert("❤️ Dua added to favorites!");
+
+  });
+
+  }
+  if (refreshDua) {
+
+  refreshDua.addEventListener("click", function () {
+
+    localStorage.removeItem("dailyDua");
+
+    location.reload();
 
   });
 
