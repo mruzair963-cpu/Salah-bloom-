@@ -11,9 +11,9 @@
 
 body{
     font-family:"Segoe UI",sans-serif;
-    background:linear-gradient(135deg,#fff6fb,#fffdf8,#f5fff8);
+    background:linear-gradient(135deg,#fff0f7,#fffaf2,#f3fff8);
     color:#333;
-    padding:20px;
+    padding:25px;
     min-height:100vh;
     overflow-x:hidden;
 }
@@ -220,6 +220,7 @@ input[type="checkbox"]{
 
 #resetStreak:hover{
     transform:translateY(-3px) scale(1.03);
+   filter:brightness(1.05);
 }
 
 /* Footer */
