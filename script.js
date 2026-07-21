@@ -177,23 +177,23 @@ prayerTimings = {
   Isha: timings.Isha
 };
 
-sunrise.textContent = timings.Sunrise;
+if (sunrise) sunrise.textContent = timings.Sunrise;
 
-fajr.textContent = timings.Fajr;
-dhuhr.textContent = timings.Dhuhr;
-asr.textContent = timings.Asr;
-maghrib.textContent = timings.Maghrib;
-isha.textContent = timings.Isha;
+if (fajr) fajr.textContent = timings.Fajr;
+if (dhuhr) dhuhr.textContent = timings.Dhuhr;
+if (asr) asr.textContent = timings.Asr;
+if (maghrib) maghrib.textContent = timings.Maghrib;
+if (isha) isha.textContent = timings.Isha;
 
 });
 
 },function(){
 
-fajr.textContent="Location needed";
-dhuhr.textContent="Location needed";
-asr.textContent="Location needed";
-maghrib.textContent="Location needed";
-isha.textContent="Location needed";
+if (fajr) fajr.textContent = "Location needed";
+if (dhuhr) dhuhr.textContent = "Location needed";
+if (asr) asr.textContent = "Location needed";
+if (maghrib) maghrib.textContent = "Location needed";
+if (isha) isha.textContent = "Location needed";
 
 });
   
