@@ -189,7 +189,9 @@ if (isha) isha.textContent = "Location needed";
       }
     });
 
-    progress.textContent = checked + " / 5";
+    if (progress) {
+  progress.textContent = checked + " / 5";
+    }
 
     let days = Number(localStorage.getItem("streak")) || 0;
 const currentDay = new Date().toDateString();
@@ -203,24 +205,29 @@ if (checked === 5) {
     localStorage.setItem("lastCompleted", currentDay);
   }
 
+  if (achievement) {
   achievement.textContent =
     "🏆 Achievement: Amazing! All Salah completed today!";
+  }
 
 } else if (checked >= 3) {
 
+  if (achievement) {
   achievement.textContent =
     "🌸 Great job! You're making progress.";
+  }
 
 } else {
 
+  if (achievement) {
   achievement.textContent =
     "🌱 Keep growing your Salah habit!";
-
-}
-
-    streak.textContent =
-  (localStorage.getItem("streak") || 0) + " Days";
   }
+
+    if (streak) {
+  streak.textContent =
+    (localStorage.getItem("streak") || 0) + " Days";
+    }
 
   // Restore saved checkboxes
   // Daily Reset
@@ -235,7 +242,9 @@ const savedDate = localStorage.getItem("savedDate");
 });
 
   localStorage.setItem("savedDate", currentDay);
-    achievement.textContent = "🌱 Keep growing your Salah habit!";
+    if (achievement) {
+  achievement.textContent = "🌱 Keep growing your Salah habit!";
+    }
     progress.textContent = "0 / 5";
   }
 
