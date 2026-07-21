@@ -161,6 +161,35 @@ ${randomDua.urdu}
   });
 
   }
+  if (shareHadith) {
+
+  shareHadith.addEventListener("click", function () {
+
+    const text =
+`${randomHadith.title}
+
+${randomHadith.english}
+
+${randomHadith.urdu}
+
+📚 ${randomHadith.source}`;
+
+    if (navigator.share) {
+
+      navigator.share({
+        title: "Daily Hadith",
+        text: text
+      });
+
+    } else {
+
+      alert("Sharing is not supported on this device.");
+
+    }
+
+  });
+
+  }
 
 if(todayDate){
 
