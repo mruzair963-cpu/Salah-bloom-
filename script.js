@@ -1,3 +1,4 @@
+alert("Script Started");
 document.addEventListener("DOMContentLoaded", function () {
 
   // Elements
