@@ -1,141 +1,114 @@
+/* =========================
+   Salah Bloom v2.0
+   Part 1
+========================= */
 
-body {
-  margin: 0;
-  padding: 20px;
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: linear-gradient(135deg, #fff5f8, #f8fff9);
-  color: #333;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-h1 {
-  text-align: center;
-  color: #d81b60;
-  font-size: 38px;
-  margin-bottom: 25px;
+body{
+    font-family:"Segoe UI",sans-serif;
+    background:linear-gradient(135deg,#fff6fb,#fffdf8,#f5fff8);
+    color:#333;
+    padding:20px;
+    min-height:100vh;
+    overflow-x:hidden;
 }
 
-h2 {
-  color: #2e7d32;
-  margin-top: 35px;
-  border-bottom: 2px solid #f8bbd0;
-  padding-bottom: 8px;
+/* Hero */
+
+.hero{
+    text-align:center;
+    padding:45px 25px;
+    margin-bottom:30px;
+    border-radius:28px;
+    background:rgba(255,255,255,.65);
+    backdrop-filter:blur(18px);
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+    border:1px solid rgba(255,255,255,.6);
 }
 
-label {
-  display: flex;
-  align-items: center;
-  background: white;
-  padding: 15px;
-  margin: 12px 0;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  font-size: 18px;
-  transition: 0.3s;
+.hero h1{
+    font-size:42px;
+    color:#d81b60;
+    margin-bottom:15px;
 }
 
-label:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(216,27,96,0.15);
+.tagline{
+    font-size:22px;
+    color:#2e7d32;
+    font-weight:700;
 }
 
-input[type="checkbox"] {
-  transform: scale(1.4);
-  margin-right: 12px;
-  accent-color: #d81b60;
+.subtitle{
+    margin-top:15px;
+    color:#666;
+    font-size:16px;
+    line-height:1.8;
 }
 
-#dua,
-#hadith {
-  background: white;
-  padding: 20px;
-  margin-top: 15px;
-  border-radius: 16px;
-  line-height: 1.8;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  border-left: 5px solid #2e7d32;
+/* Section Titles */
+
+h2{
+    margin:35px 0 18px;
+    color:#2e7d32;
+    font-size:28px;
 }
 
-h3 {
-  color: #ad1457;
-  background: white;
-  padding: 12px;
-  border-radius: 12px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+/* Date Card */
+
+.date-card{
+    background:white;
+    border-radius:22px;
+    padding:22px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    margin-bottom:30px;
 }
 
-@media (max-width:600px) {
-  body {
-    padding: 15px;
+.date-card h3{
+    color:#d81b60;
+    margin-bottom:10px;
+}
+
+#todayDate{
+    font-size:18px;
+    font-weight:bold;
+    color:#444;
+}
+
+#hijriDate{
+    margin-top:10px;
+    color:#2e7d32;
+}
+
+/* Prayer Cards */
+
+#prayerCards{
+    display:grid;
+    gap:15px;
+}
+
+.prayer-card{
+    background:white;
+    padding:18px;
+    border-radius:18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.prayer-card:hover{
+    transform:translateY(-4px);
+}
+
+.prayer-card span{
+    color:#d81b60;
+    font-weight:bold;
   }
-
-  h1 {
-    font-size: 32px;
-  }
-
-  label {
-    font-size: 16px;
-  }
-}
-
-#achievement {
-  background: white;
-  padding: 15px;
-  margin-top: 15px;
-  border-radius: 16px;
-  text-align: center;
-  font-size: 18px;
-  color: #2e7d32;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  border-left: 5px solid #d81b60;
-  transition: 0.3s;
-}
-
-#achievement:hover {
-  transform: translateY(-3px);
-}
-.hero {
-  background: linear-gradient(135deg, #ffdce8, #fff8fb, #f3fff7);
-  padding: 40px 25px;
-  border-radius: 24px;
-  text-align: center;
-  margin-bottom: 30px;
-  box-shadow: 0 10px 25px rgba(216, 27, 96, 0.12);
-}
-
-.hero h1 {
-  margin: 0;
-  font-size: 42px;
-  color: #d81b60;
-}
-
-.tagline {
-  font-size: 22px;
-  font-weight: 600;
-  color: #2e7d32;
-  margin-top: 15px;
-}
-
-.subtitle {
-  font-size: 16px;
-  color: #666;
-  line-height: 1.7;
-  margin-top: 15px;
-}
-
-@media (max-width: 600px) {
-  .hero {
-    padding: 30px 20px;
-  }
-
-  .hero h1 {
-    font-size: 34px;
-  }
-
-  .tagline {
-    font-size: 18px;
-  }
-
-  .subtitle {
-    font-size: 14px;
-  }
-}
