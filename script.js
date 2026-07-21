@@ -79,12 +79,13 @@ const savedDate = localStorage.getItem("savedDate");
 
   localStorage.setItem("savedDate", currentDay);
     achievement.textContent = "🌱 Keep growing your Salah habit!";
+    progress.textContent = "0 / 5";
   }
 
 // Restore saved checkboxes
 checkboxes.forEach((box, index) => {
 
-  box.checked = localStorage.getItem("salah" + index) === "true";
+  box.checked = localStorage.getItem(`salah${index}`) === "true";
 
   box.addEventListener("change", updateProgress);
 
