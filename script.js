@@ -73,9 +73,9 @@ const savedDate = localStorage.getItem("savedDate");
   if (savedDate !== currentDay) {
 
   checkboxes.forEach((box, index) => {
-    localStorage.setItem("salah" + index, false);
-    box.checked = false;
-  });
+  localStorage.setItem(`salah${index}`, "false");
+  box.checked = false;
+});
 
   localStorage.setItem("savedDate", currentDay);
     achievement.textContent = "🌱 Keep growing your Salah habit!";
