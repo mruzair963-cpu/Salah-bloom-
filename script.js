@@ -6,7 +6,20 @@ document.addEventListener("DOMContentLoaded", function () {
   const streak = document.querySelector(".card:nth-child(2) h3");
   const achievement = document.getElementById("achievement");
   const resetButton = document.getElementById("resetStreak");
+  
+// Today's Date
 
+const todayDate = document.getElementById("todayDate");
+
+const today = new Date();
+
+todayDate.textContent = today.toLocaleDateString("en-US", {
+  weekday: "long",
+  day: "numeric",
+  month: "long",
+  year: "numeric"
+});
+  
   // Update Progress & Streak
   function updateProgress() {
     let checked = 0;
