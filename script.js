@@ -42,12 +42,16 @@ fetch(`https://api.aladhan.com/v1/gToH/${day}-${month}-${year}`)
   .then(data => {
     const hijri = data.data.hijri;
 
-    if(hijriDate){
-  hijriDate.textContent =
-    `🌙 ${hijri.day} ${hijri.month.en} ${hijri.year} AH`;
-    })
-  .catch(() => {
-    hijriDate.textContent = "🌙 Hijri date unavailable";
+    if (hijriDate) {
+        hijriDate.textContent =
+            `🌙 ${hijri.day} ${hijri.month.en} ${hijri.year} AH`;
+    }
+})
+.catch(() => {
+    if (hijriDate) {
+        hijriDate.textContent = "🌙 Hijri date unavailable";
+    }
+
   });
   navigator.geolocation.getCurrentPosition(function(position){
 
