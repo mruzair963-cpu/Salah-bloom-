@@ -27,10 +27,10 @@ const lastCompleted = localStorage.getItem("lastCompleted");
 
 if (checked === 5) {
 
-  if (lastCompleted !== today) {
+  if (lastCompleted !== currentDay) {
     days++;
     localStorage.setItem("streak", days);
-    localStorage.setItem("lastCompleted", today);
+    localStorage.setItem("lastCompleted", currentDay);
   }
 
   achievement.textContent =
@@ -52,11 +52,27 @@ streak.textContent =
   }
 
   // Restore saved checkboxes
-  checkboxes.forEach((box, index) => {
-    box.checked = localStorage.getItem("salah" + index) === "true";
+  // Daily Reset
+const currentDay = new Date().toDateString();
+const savedDate = localStorage.getItem("savedDate");
 
-    box.addEventListener("change", updateProgress);
+if (savedDate !== today) {
+
+  checkboxes.forEach((box, index) => {
+    localStorage.setItem("salah" + index, false);
   });
+
+  localStorage.setItem("savedDate", today);
+}
+
+// Restore saved checkboxes
+checkboxes.forEach((box, index) => {
+
+  box.checked = localStorage.getItem("salah" + index) === "true";
+
+  box.addEventListener("change", updateProgress);
+
+});
 
   // Reset streak
   resetButton.addEventListener("click", function () {
