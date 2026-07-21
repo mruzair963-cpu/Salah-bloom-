@@ -65,7 +65,20 @@ resetButton.addEventListener("click", function () {
   localStorage.setItem("streak", 0);
   streak.innerHTML = "🔥 Streak: 0 Days";
 });
-loadDailyDhikr();
+async function loadDailyDhikr() {
+  try {
+    const response = await fetch("https://api.islamic.app/v1/dhikr/morning");
+    const result = await response.json();
+
+    console.log(result);
+
+    duaBox.innerHTML =
+      "<pre>" + JSON.stringify(result, null, 2) + "</pre>";
+
+  } catch (error) {
+    duaBox.innerHTML = "Error: " + error.message;
+  }
+}
 
   updateProgress();
 });
