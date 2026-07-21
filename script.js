@@ -210,9 +210,11 @@ checkboxes.forEach((box, index) => {
 }
 
 
+updatePrayerStatus();
+
 setInterval(updatePrayerStatus,1000);
 
-  updateProgress();
+updateProgress();
 
 });
 
