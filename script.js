@@ -8,8 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const duaBox = document.getElementById("dua");
 const hadithBox = document.getElementById("hadith");
-  async function loadDailyDhikr() {
-  try {
+  
     const response = await fetch("https://api.islamic.app/v1/dhikr/morning");
     const result = await response.json();
     console.log(result);
