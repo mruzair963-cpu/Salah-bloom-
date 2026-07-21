@@ -23,12 +23,15 @@ const nextPrayer = document.getElementById("nextPrayer");
 
 const today = new Date();
 
+if(todayDate){
+
 todayDate.textContent = today.toLocaleDateString("en-US", {
   weekday: "long",
   day: "numeric",
   month: "long",
   year: "numeric"
 });
+}
   
 const day = today.getDate();
 const month = today.getMonth() + 1;
@@ -156,18 +159,22 @@ checkboxes.forEach((box, index) => {
 });
 
   // Reset streak
+  if(resetButton){
+
   resetButton.addEventListener("click", function () {
 
-  if (confirm("Reset your streak?")) {
+    if (confirm("Reset your streak?")) {
 
-    localStorage.setItem("streak", 0);
-    localStorage.removeItem("lastCompleted");
+      localStorage.setItem("streak", 0);
+      localStorage.removeItem("lastCompleted");
 
-    updateProgress();
+      updateProgress();
+
+    }
+
+  });
 
   }
-
-});
   function updatePrayerStatus(){
 
   if(Object.keys(prayerTimings).length === 0){
