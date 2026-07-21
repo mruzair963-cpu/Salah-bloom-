@@ -35,6 +35,25 @@ const refreshHadith = document.getElementById("refreshHadith");
 
 const today = new Date();
   console.log(duas);
+  const todayHadithKey = new Date().toDateString();
+
+let savedHadith = JSON.parse(localStorage.getItem("dailyHadith"));
+let randomHadith;
+
+if (savedHadith && savedHadith.date === todayHadithKey) {
+
+  randomHadith = savedHadith.hadith;
+
+} else {
+
+  randomHadith = hadiths[Math.floor(Math.random() * hadiths.length)];
+
+  localStorage.setItem("dailyHadith", JSON.stringify({
+    date: todayHadithKey,
+    hadith: randomHadith
+  }));
+
+}
   
   const todayKey = new Date().toDateString();
 
@@ -75,6 +94,23 @@ if (duaUrdu) {
 if (duaSource) {
   duaSource.textContent = "📚 " + randomDua.source;
 }
+  if (hadith) {
+
+  hadith.innerHTML = `
+    <h3>📖 ${randomHadith.title}</h3>
+
+    <p>${randomHadith.english}</p>
+
+    <hr>
+
+    <p>${randomHadith.urdu}</p>
+
+    <br>
+
+    <small>📚 ${randomHadith.source}</small>
+  `;
+
+  }
   if (shareDua) {
 
   shareDua.addEventListener("click", function () {
