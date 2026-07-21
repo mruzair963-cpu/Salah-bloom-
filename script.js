@@ -174,30 +174,37 @@ checkboxes.forEach((box, index) => {
     return;
   }
 
-
   const now = new Date();
 
   let current = "Before Fajr";
   let next = "Fajr";
 
+  let prayers = Object.entries(prayerTimings);
 
-  for(let prayer in prayerTimings){
+  for(let i = 0; i < prayers.length; i++){
 
-    let [hour, minute] = prayerTimings[prayer].split(":");
+    let prayerName = prayers[i][0];
+    let prayerTime = prayers[i][1];
 
-    let prayerTime = new Date();
+    let [hour, minute] = prayerTime.split(":");
 
-    prayerTime.setHours(hour);
-    prayerTime.setMinutes(minute);
-    prayerTime.setSeconds(0);
+    let time = new Date();
+
+    time.setHours(hour);
+    time.setMinutes(minute);
+    time.setSeconds(0);
 
 
-    if(now >= prayerTime){
-      current = prayer;
-    }
-    else{
-      next = prayer;
-      break;
+    if(now >= time){
+      current = prayerName;
+
+      if(i < prayers.length - 1){
+        next = prayers[i + 1][0];
+      }
+      else{
+        next = "Fajr (Tomorrow)";
+      }
+
     }
 
   }
@@ -207,7 +214,7 @@ checkboxes.forEach((box, index) => {
 
   nextPrayer.textContent = next;
 
-}
+  }
 
 
 updatePrayerStatus();
