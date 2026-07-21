@@ -30,7 +30,25 @@ const favoriteDua = document.getElementById("favoriteDua");
 
 const today = new Date();
   
-  const randomDua = duas[Math.floor(Math.random() * duas.length)];
+  const todayKey = new Date().toDateString();
+
+let savedDua = JSON.parse(localStorage.getItem("dailyDua"));
+let randomDua;
+
+if (savedDua && savedDua.date === todayKey) {
+
+  randomDua = savedDua.dua;
+
+} else {
+
+  randomDua = duas[Math.floor(Math.random() * duas.length)];
+
+  localStorage.setItem("dailyDua", JSON.stringify({
+    date: todayKey,
+    dua: randomDua
+  }));
+
+}
 
 if (duaTitle) {
   duaTitle.textContent = "🤲 " + randomDua.title;
