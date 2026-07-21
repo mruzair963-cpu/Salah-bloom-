@@ -89,6 +89,44 @@ if (duaUrdu) {
 if (duaSource) {
   duaSource.textContent = "📚 " + randomDua.source;
 }
+  if (shareDua) {
+
+  shareDua.addEventListener("click", function () {
+
+    const text =
+`${randomDua.title}
+
+${randomDua.arabic}
+
+${randomDua.english}
+
+${randomDua.urdu}
+
+📚 ${randomDua.source}`;
+
+    if (navigator.share) {
+      navigator.share({
+        title: "Daily Dua",
+        text: text
+      });
+    } else {
+      alert("Sharing is not supported on this device.");
+    }
+
+  });
+
+  }
+  if (favoriteDua) {
+
+  favoriteDua.addEventListener("click", function () {
+
+    localStorage.setItem("favoriteDua", JSON.stringify(randomDua));
+
+    alert("❤️ Dua added to favorites!");
+
+  });
+
+  }
 
 if(todayDate){
 
