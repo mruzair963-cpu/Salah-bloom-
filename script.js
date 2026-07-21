@@ -104,6 +104,8 @@ function loadPrayerTimes() {
 
   navigator.geolocation.getCurrentPosition(function(position) {
 
+console.log("Location received");
+
 
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
