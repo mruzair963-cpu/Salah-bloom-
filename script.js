@@ -16,6 +16,9 @@ const dhuhr = document.getElementById("dhuhr");
 const asr = document.getElementById("asr");
 const maghrib = document.getElementById("maghrib");
 const isha = document.getElementById("isha");
+  const sunrise = document.getElementById("sunrise");
+const currentPrayer = document.getElementById("currentPrayer");
+const nextPrayer = document.getElementById("nextPrayer");
 
 const today = new Date();
 
@@ -51,6 +54,7 @@ fetch(`https://api.aladhan.com/v1/timings?latitude=${latitude}&longitude=${longi
 .then(data=>{
 
 const timings = data.data.timings;
+  sunrise.textContent = timings.Sunrise;
 
 fajr.textContent = timings.Fajr;
 dhuhr.textContent = timings.Dhuhr;
