@@ -11,6 +11,11 @@ const streak = document.getElementById("streakText");
 
 const todayDate = document.getElementById("todayDate");
   const hijriDate = document.getElementById("hijriDate");
+  const fajr = document.getElementById("fajr");
+const dhuhr = document.getElementById("dhuhr");
+const asr = document.getElementById("asr");
+const maghrib = document.getElementById("maghrib");
+const isha = document.getElementById("isha");
 
 const today = new Date();
 
@@ -36,6 +41,34 @@ fetch(`https://api.aladhan.com/v1/gToH/${day}-${month}-${year}`)
   .catch(() => {
     hijriDate.textContent = "🌙 Hijri date unavailable";
   });
+  navigator.geolocation.getCurrentPosition(function(position){
+
+const latitude = position.coords.latitude;
+const longitude = position.coords.longitude;
+
+fetch(`https://api.aladhan.com/v1/timings?latitude=${latitude}&longitude=${longitude}&method=2`)
+.then(response => response.json())
+.then(data=>{
+
+const timings = data.data.timings;
+
+fajr.textContent = timings.Fajr;
+dhuhr.textContent = timings.Dhuhr;
+asr.textContent = timings.Asr;
+maghrib.textContent = timings.Maghrib;
+isha.textContent = timings.Isha;
+
+});
+
+},function(){
+
+fajr.textContent="Location needed";
+dhuhr.textContent="Location needed";
+asr.textContent="Location needed";
+maghrib.textContent="Location needed";
+isha.textContent="Location needed";
+
+});
   
   // Update Progress & Streak
   function updateProgress() {
