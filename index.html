@@ -10,22 +10,18 @@
 
 <body>
 
-  <!-- Hero Section -->
+  <!-- HOME SCREEN -->
+<section id="home" class="screen active">
+
   <header class="hero">
-    <h1>
-  🌸 Salah Bloom
-    </h1>
-
-    <p class="tagline">
-      Bloom one prayer at a time.
-    </p>
-
+    <h1>🌸 Salah Bloom</h1>
+    <p class="tagline">Bloom one prayer at a time.</p>
     <p class="subtitle">
       🤍 Build consistency • 🌿 Strengthen your faith • ✨ Grow closer to Allah
     </p>
   </header>
 
-  <!-- Today's Date -->
+
   <section class="date-section">
     <div class="date-card">
       <h3>📅 Today</h3>
@@ -34,113 +30,134 @@
     </div>
   </section>
 
-  <!-- Prayer Times -->
-  <section class="prayer-times">
 
-    <h2>🕌 Prayer Times</h2>
-
-    <div id="prayerCards">
-
-      <div class="prayer-card">
-        🌅 Fajr
-        <span id="fajr">--:--</span>
-      </div>
-
-      <div class="prayer-card">
-        ☀️ Dhuhr
-        <span id="dhuhr">--:--</span>
-      </div>
-
-      <div class="prayer-card">
-        🌤️ Asr
-        <span id="asr">--:--</span>
-      </div>
-
-      <div class="prayer-card">
-        🌇 Maghrib
-        <span id="maghrib">--:--</span>
-      </div>
-
-      <div class="prayer-card">
-        🌙 Isha
-        <span id="isha">--:--</span>
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- Salah Tracker -->
   <section class="tracker">
 
     <h2>☑️ Today's Salah</h2>
 
     <label><input type="checkbox"> 🌅 Fajr</label>
-
     <label><input type="checkbox"> ☀️ Dhuhr</label>
-
     <label><input type="checkbox"> 🌤️ Asr</label>
-
     <label><input type="checkbox"> 🌇 Maghrib</label>
-
     <label><input type="checkbox"> 🌙 Isha</label>
 
   </section>
 
-  <!-- Statistics -->
-  <section class="stats">
 
-    <div class="card">
-      <h3>📊 Progress</h3>
-      <p id="progressText">0 / 5</p>
+  <div id="achievement">
+    🌱 Keep growing your Salah habit!
+  </div>
+
+</section>
+
+
+
+<!-- PRAYER SCREEN -->
+<section id="prayer" class="screen">
+
+  <h2>🕌 Prayer Times</h2>
+
+  <div id="prayerCards">
+
+    <div class="prayer-card">
+      🌅 Fajr
+      <span id="fajr">--:--</span>
     </div>
 
-    <div class="card">
-      <h3>🔥 Streak</h3>
-      <p id="streakText">0 Days</p>
+    <div class="prayer-card">
+      ☀️ Dhuhr
+      <span id="dhuhr">--:--</span>
     </div>
 
-  </section>
-
-  <!-- Achievement -->
-  <section>
-
-    <div id="achievement">
-      🌱 Keep growing your Salah habit!
+    <div class="prayer-card">
+      🌤️ Asr
+      <span id="asr">--:--</span>
     </div>
 
-  </section>
-
-  <!-- Daily Dua -->
-  <section>
-
-    <h2>🤲 Daily Dua</h2>
-
-    <div id="dua">
-      Loading today's dua...
+    <div class="prayer-card">
+      🌇 Maghrib
+      <span id="maghrib">--:--</span>
     </div>
 
-  </section>
-
-  <!-- Daily Hadith -->
-  <section>
-
-    <h2>📖 Daily Hadith</h2>
-
-    <div id="hadith">
-      Loading today's hadith...
+    <div class="prayer-card">
+      🌙 Isha
+      <span id="isha">--:--</span>
     </div>
 
-  </section>
+  </div>
 
-  <!-- Buttons -->
-  <section class="buttons">
+</section>
 
-    <button id="resetStreak">
-      🔄 Reset Streak
-    </button>
 
-  </section>
+
+<!-- DUA SCREEN -->
+<section id="duaScreen" class="screen">
+
+  <h2>🤲 Daily Dua</h2>
+
+  <div id="dua">
+    Loading today's dua...
+  </div>
+
+</section>
+
+
+
+<!-- HADITH SCREEN -->
+<section id="hadithScreen" class="screen">
+
+  <h2>📖 Daily Hadith</h2>
+
+  <div id="hadith">
+    Loading today's hadith...
+  </div>
+
+</section>
+
+
+
+<!-- PROGRESS SCREEN -->
+<section id="progress" class="screen">
+
+  <h2>📊 Progress</h2>
+
+  <div class="card">
+
+    <p id="progressText">0 / 5</p>
+
+    <p id="streakText">🔥 0 Days</p>
+
+  </div>
+
+</section>
+
+
+
+<!-- BOTTOM NAVIGATION -->
+
+<nav class="bottom-nav">
+
+  <button onclick="showScreen('home')">
+    🏠 Home
+  </button>
+
+  <button onclick="showScreen('prayer')">
+    🕌 Prayer
+  </button>
+
+  <button onclick="showScreen('duaScreen')">
+    🤲 Dua
+  </button>
+
+  <button onclick="showScreen('hadithScreen')">
+    📖 Hadith
+  </button>
+
+  <button onclick="showScreen('progress')">
+    📊 Progress
+  </button>
+
+</nav>
   <footer>
   <p>
     Made with 🤍 for the Ummah • Salah Bloom © 2026
