@@ -52,13 +52,11 @@ if (checked === 5) {
 } else if (checked >= 3) {
 
   achievement.textContent =
-    "🌸 Great job! You're making progress.";
-
-} else {
+    "🌸 Great job! You're making progress.
+    } else {
 
   achievement.textContent =
     "🌱 Keep growing your Salah habit!";
-  updateProgress();
 }
 
     streak.textContent =
@@ -99,6 +97,9 @@ checkboxes.forEach((box, index) => {
     localStorage.removeItem("lastCompleted");
 
     streak.textContent = "0 Days";
+    achievement.textContent = "🌱 Keep growing your Salah habit!";
+
+    updateProgress();
 
   }
 
