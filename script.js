@@ -25,7 +25,7 @@ todayDate.textContent = today.toLocaleDateString("en-US", {
     let checked = 0;
 
     checkboxes.forEach((box, index) => {
-      localStorage.setItem("salah" + index, box.checked);
+      localStorage.setItem(`salah${index}`, box.checked);
 
       if (box.checked) {
         checked++;
