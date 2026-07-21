@@ -229,6 +229,7 @@ if (checked === 5) {
   streak.textContent =
     (localStorage.getItem("streak") || 0) + " Days";
     }
+  }
 
   // Restore saved checkboxes
   // Daily Reset
