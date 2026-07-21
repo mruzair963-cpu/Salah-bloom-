@@ -34,6 +34,7 @@ const favoriteHadith = document.getElementById("favoriteHadith");
 const refreshHadith = document.getElementById("refreshHadith");
 
 const today = new Date();
+  const currentDay = new Date().toDateString();
   console.log(duas);
   const todayHadithKey = new Date().toDateString();
 
@@ -248,7 +249,7 @@ if (isha) isha.textContent = "Location needed";
     }
 
     let days = Number(localStorage.getItem("streak")) || 0;
-const currentDay = new Date().toDateString();
+
 const lastCompleted = localStorage.getItem("lastCompleted");
 
 if (checked === 5) {
@@ -312,6 +313,7 @@ checkboxes.forEach((box, index) => {
   box.addEventListener("change", updateProgress);
 
 });
+  updateProgress();
 
   // Reset streak
   if(resetButton){
