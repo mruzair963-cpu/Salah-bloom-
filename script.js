@@ -22,19 +22,33 @@ document.addEventListener("DOMContentLoaded", function () {
     progress.textContent = "📊 Progress: " + checked + "/5";
 
     let days = Number(localStorage.getItem("streak")) || 0;
+const today = new Date().toDateString();
+const lastCompleted = localStorage.getItem("lastCompleted");
 
-    if (checked === 5) {
-      achievement.textContent =
-        "🏆 Achievement: Amazing! All Salah completed today!";
-    } else if (checked >= 3) {
-      achievement.textContent =
-        "🌸 Great job! You're making progress.";
-    } else {
-      achievement.textContent =
-        "🌱 Keep growing your Salah habit!";
-    }
+if (checked === 5) {
 
-    streak.textContent = "🔥 Streak: " + days + " Days";
+  if (lastCompleted !== today) {
+    days++;
+    localStorage.setItem("streak", days);
+    localStorage.setItem("lastCompleted", today);
+  }
+
+  achievement.textContent =
+    "🏆 Achievement: Amazing! All Salah completed today!";
+
+} else if (checked >= 3) {
+
+  achievement.textContent =
+    "🌸 Great job! You're making progress.";
+
+} else {
+
+  achievement.textContent =
+    "🌱 Keep growing your Salah habit!";
+}
+
+streak.textContent =
+  "🔥 Streak: " + (localStorage.getItem("streak") || 0) + " Days";
   }
 
   // Restore saved checkboxes
