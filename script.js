@@ -1,84 +1,57 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+  // Elements
   const checkboxes = document.querySelectorAll("input[type='checkbox']");
-  const progress = document.querySelector("h3");
-  const streak = document.querySelectorAll("h3")[1];
+  const progress = document.querySelector(".card:nth-child(1) h3");
+  const streak = document.querySelector(".card:nth-child(2) h3");
   const achievement = document.getElementById("achievement");
   const resetButton = document.getElementById("resetStreak");
-  
 
-const duaBox = document.getElementById("dua");
-const hadithBox = document.getElementById("hadith");
-  
-    const response = await fetch("https://api.islamic.app/v1/dhikr/morning");
-    const result = await response.json();
-    console.log(result);
-
-    if (result.data && result.data.length > 0) {
-      const random =
-        result.data[Math.floor(Math.random() * result.data.length)];
-
-      duaBox.innerHTML =
-        "<strong>Arabic:</strong><br>" +
-        random.arabic +
-        "<br><br><strong>English:</strong><br>" +
-        random.translation;
-    }
-  } catch (error) {
-    duaBox.innerHTML =
-      "Unable to load today's dua. Please check your internet connection.";
-  }
-  }
-
+  // Update Progress & Streak
   function updateProgress() {
     let checked = 0;
 
     checkboxes.forEach((box, index) => {
-      if (box.checked) checked++;
       localStorage.setItem("salah" + index, box.checked);
+
+      if (box.checked) {
+        checked++;
+      }
     });
 
-    progress.innerHTML = "Progress: " + checked + "/5";
+    progress.textContent = "📊 Progress: " + checked + "/5";
+
+    let days = Number(localStorage.getItem("streak")) || 0;
 
     if (checked === 5) {
-      let days = Number(localStorage.getItem("streak")) || 0;
-      days++;
-      localStorage.setItem("streak", days);
-
-      achievement.innerHTML =
+      achievement.textContent =
         "🏆 Achievement: Amazing! All Salah completed today!";
+    } else if (checked >= 3) {
+      achievement.textContent =
+        "🌸 Great job! You're making progress.";
     } else {
-      achievement.innerHTML =
-        "🌱 Achievement: Keep growing your Salah habit!";
+      achievement.textContent =
+        "🌱 Keep growing your Salah habit!";
     }
 
-    streak.innerHTML =
-      "🔥 Streak: " + (localStorage.getItem("streak") || 0) + " Days";
+    streak.textContent = "🔥 Streak: " + days + " Days";
   }
 
+  // Restore saved checkboxes
   checkboxes.forEach((box, index) => {
-  box.checked = localStorage.getItem("salah" + index) === "true";
-  box.addEventListener("change", updateProgress);
-});
+    box.checked = localStorage.getItem("salah" + index) === "true";
 
-resetButton.addEventListener("click", function () {
-  localStorage.setItem("streak", 0);
-  streak.innerHTML = "🔥 Streak: 0 Days";
-});
-async function loadDailyDhikr() {
-  try {
-    const response = await fetch("https://api.islamic.app/v1/dhikr/morning");
-    const result = await response.json();
+    box.addEventListener("change", updateProgress);
+  });
 
-    console.log(result);
-
-    duaBox.innerHTML =
-      "<pre>" + JSON.stringify(result, null, 2) + "</pre>";
-
-  } catch (error) {
-    duaBox.innerHTML = "Error: " + error.message;
-  }
-}
-loadDailyDhikr();
+  // Reset streak
+  resetButton.addEventListener("click", function () {
+    if (confirm("Reset your streak?")) {
+      localStorage.setItem("streak", 0);
+      streak.textContent = "🔥 Streak: 0 Days";
+    }
+  });
 
   updateProgress();
+
 });
