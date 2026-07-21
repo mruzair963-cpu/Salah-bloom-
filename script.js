@@ -185,9 +185,9 @@ ${randomHadith.urdu}
 
   favoriteHadith.addEventListener("click", function () {
 
-    localStorage.setItem("favoriteHadith", JSON.stringify(randomHadith));
+    alert("Favorite button clicked!");
 
-    alert("❤️ Hadith added to favorites!");
+    localStorage.setItem("favoriteHadith", JSON.stringify(randomHadith));
 
   });
 
