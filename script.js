@@ -180,6 +180,18 @@ ${randomHadith.urdu}
         title: "Daily Hadith",
         text: text
       });
+    }
+    if (favoriteHadith) {
+
+  favoriteHadith.addEventListener("click", function () {
+
+    localStorage.setItem("favoriteHadith", JSON.stringify(randomHadith));
+
+    alert("❤️ Hadith added to favorites!");
+
+  });
+
+    }
 
     } else {
 
