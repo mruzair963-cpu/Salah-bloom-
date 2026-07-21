@@ -29,6 +29,7 @@ const shareDua = document.getElementById("shareDua");
 const favoriteDua = document.getElementById("favoriteDua");
 
 const today = new Date();
+  console.log(duas);
   
   const todayKey = new Date().toDateString();
 
