@@ -98,9 +98,6 @@ checkboxes.forEach((box, index) => {
     localStorage.setItem("streak", 0);
     localStorage.removeItem("lastCompleted");
 
-    streak.textContent = "0 Days";
-    achievement.textContent = "🌱 Keep growing your Salah habit!";
-
     updateProgress();
 
   }
