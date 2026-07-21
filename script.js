@@ -232,7 +232,7 @@ if (checked === 5) {
 
   // Restore saved checkboxes
   // Daily Reset
-const currentDay = new Date().toDateString();
+
 const savedDate = localStorage.getItem("savedDate");
 
   if (savedDate !== currentDay) {
